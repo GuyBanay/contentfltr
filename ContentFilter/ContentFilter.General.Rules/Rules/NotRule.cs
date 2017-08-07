@@ -1,5 +1,7 @@
 ﻿
 
+using ContentFilter.Contracts;
+
 namespace ContentFilter.General.Rules.Rules
 {
     public class NotRule : BaseRule

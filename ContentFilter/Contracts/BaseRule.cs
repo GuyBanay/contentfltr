@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ContentFilter.Contracts;
 
-
-namespace ContentFilter.General.Rules.Rules
+namespace ContentFilter.Contracts
 {
-    public abstract class BaseRule :IBaseRule
+    public abstract class BaseRule :IDisposable
     {
         private static readonly List<BaseRule> Rules = new List<BaseRule>();
 

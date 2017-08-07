@@ -1,4 +1,6 @@
 ﻿
+using ContentFilter.Contracts;
+
 namespace ContentFilter.General.Rules.Rules
 {
     public class AndRule : BaseRule
@@ -9,5 +11,6 @@ namespace ContentFilter.General.Rules.Rules
             var b = rules.TrueForAll(r => r.IsMatch(text));
             return b;
         }
+
     }
 }

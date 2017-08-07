@@ -1,4 +1,6 @@
-﻿namespace ContentFilter.General.Rules.Rules
+﻿using ContentFilter.Contracts;
+
+namespace ContentFilter.General.Rules.Rules
 {
     public class ContainRule : BaseRule
     {

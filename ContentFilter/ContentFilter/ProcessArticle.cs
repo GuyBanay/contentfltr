@@ -12,10 +12,10 @@ namespace ContentFilter
     {
         private readonly string _artticleFile;
         private readonly string _resultFile;
-        private readonly IBaseRule _rule;
+        private readonly BaseRule _rule;
         private readonly BlockingCollection<ProcessedLine> _dataItems = new BlockingCollection<ProcessedLine>(100);
 
-        public ProcessArticle(string artticleFile, string resultFile, IBaseRule rule)
+        public ProcessArticle(string artticleFile, string resultFile, BaseRule rule)
         {
             _artticleFile = artticleFile;
             _resultFile = resultFile;

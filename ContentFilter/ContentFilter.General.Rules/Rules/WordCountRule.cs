@@ -1,4 +1,5 @@
 ﻿using System;
+using ContentFilter.Contracts;
 
 
 namespace ContentFilter.General.Rules.Rules

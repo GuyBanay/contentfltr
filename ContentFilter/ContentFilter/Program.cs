@@ -80,7 +80,7 @@ namespace ContentFilter
         }
 
         
-        private static IBaseRule GetRuleToApplyFromUser(IRuleManager ruleManager)
+        private static BaseRule GetRuleToApplyFromUser(IRuleManager ruleManager)
         {
             while (true)
             {

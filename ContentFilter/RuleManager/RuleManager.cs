@@ -8,7 +8,7 @@ namespace ContentFilter.RuleManager
 {
     public class RuleManager: IRuleManager, IDisposable
     {
-        private readonly List<IBaseRule> _rules = new List<IBaseRule>();
+        private readonly List<BaseRule> _rules = new List<BaseRule>();
         private List<Type> _derivedTypes = new List<Type>();
         
         public RuleManager(string rulesDllPath)
@@ -24,7 +24,7 @@ namespace ContentFilter.RuleManager
             
         }
 
-        public IBaseRule GetRule(string ruleName)
+        public BaseRule GetRule(string ruleName)
         {
             var rule = _rules.FirstOrDefault(r => r.Name?.Equals(ruleName, StringComparison.OrdinalIgnoreCase) == true);
             if (rule != null)
@@ -36,7 +36,7 @@ namespace ContentFilter.RuleManager
 
         private static IEnumerable<Type> FindDerivedTypes(Assembly assembly)
         {
-            return assembly.ExportedTypes.Where(t => t != typeof(IBaseRule) &&
+            return assembly.ExportedTypes.Where(t => t != typeof(BaseRule) &&
                                                   t.IsAssignableFrom(t) && !t.IsAbstract);
         }
 
@@ -56,7 +56,7 @@ namespace ContentFilter.RuleManager
                 _derivedTypes.FirstOrDefault(t => t.Name.Equals($"{rule}Rule", StringComparison.OrdinalIgnoreCase));
             if (derivedType != null)
             {
-                var ruleInstance = Activator.CreateInstance(derivedType) as IBaseRule;
+                var ruleInstance = Activator.CreateInstance(derivedType) as BaseRule;
                 if (ruleInstance != null)
                 {
                     ruleInstance.SetContent(content);

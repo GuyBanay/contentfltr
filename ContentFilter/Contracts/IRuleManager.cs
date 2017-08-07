@@ -2,6 +2,6 @@ namespace ContentFilter.Contracts
 {
     public interface IRuleManager
     {
-        IBaseRule GetRule(string ruleName);
+        BaseRule GetRule(string ruleName);
      }
 }
