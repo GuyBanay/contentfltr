@@ -32,7 +32,14 @@ namespace ContentFilter
 
                 var rule = CreateRuleDefinition(name, ruleId, ruleAndArguments.Skip(1).ToArray());
 
-                _rules.Add(rule);
+                if (!_rules.Any(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    _rules.Add(rule);
+                }
+                else
+                {
+                    Console.WriteLine($"Rule name already exist, ignoring \"{line}\"");
+                }
             }
             catch (Exception)
             {
